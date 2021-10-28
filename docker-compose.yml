@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  selenium2:
+    image: selenium/standalone-chrome:4.0.0-alpha-7-20201119
+    container_name: selenium_container2
+    ports:
+      - "4444:4444"
+    logging:
+      driver: none
+
+  test_runner1:
+    build:
+      context: .
+      dockerfile: .
+    image: test_runner_image2
+    container_name: test_runner_container2
+    network_mode: "host"
